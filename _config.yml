@@ -1,0 +1,20 @@
+# GitHub Pages Configuration
+theme: null
+plugins: []
+
+# Site Settings
+title: Husain Bagichawala
+description: AI Engineer | Autonomous Driving | Embedded Systems
+baseurl: /portfolio
+url: https://hb-innovates.github.io
+
+# Build Settings
+markdown: kramdown
+include: ['.nojekyll']
+
+# Exclude unnecessary files
+exclude:
+  - .github
+  - README.md
+  - LICENSE
+  - .gitignore
