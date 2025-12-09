@@ -39,16 +39,9 @@
                 repeating-linear-gradient(
                     90deg,
                     transparent,
-                    transparent 35px,
-                    rgba(0, 102, 204, 0.03) 35px,
-                    rgba(0, 102, 204, 0.03) 70px
-                ),
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 35px,
-                    rgba(255, 111, 0, 0.03) 35px,
-                    rgba(255, 111, 0, 0.03) 70px
+                    transparent 50px,
+                    rgba(0, 102, 204, 0.015) 50px,
+                    rgba(0, 102, 204, 0.015) 100px
                 );
             min-height: 100vh;
             transition: background-color 0.3s;
@@ -60,16 +53,9 @@
                 repeating-linear-gradient(
                     90deg,
                     transparent,
-                    transparent 35px,
-                    rgba(0, 212, 255, 0.05) 35px,
-                    rgba(0, 212, 255, 0.05) 70px
-                ),
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 35px,
-                    rgba(255, 111, 0, 0.05) 35px,
-                    rgba(255, 111, 0, 0.05) 70px
+                    transparent 50px,
+                    rgba(0, 212, 255, 0.02) 50px,
+                    rgba(0, 212, 255, 0.02) 100px
                 );
         }
 
@@ -102,7 +88,7 @@
             color: white;
             cursor: pointer;
             font-size: 18px;
-            transition: all 0.3s;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -111,7 +97,7 @@
         }
 
         .icon-btn:hover {
-            transform: scale(1.1) rotate(10deg);
+            transform: scale(1.08) rotate(5deg);
             box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
         }
 
@@ -122,6 +108,13 @@
 
         .icon-btn.social:hover {
             box-shadow: 0 4px 12px rgba(255, 111, 0, 0.3);
+        }
+
+        /* Hide social icons in top bar on mobile */
+        @media (max-width: 768px) {
+            .icon-btn.social {
+                display: none;
+            }
         }
 
         /* Navigation */
@@ -148,7 +141,8 @@
             font-size: 1.5rem;
             font-weight: bold;
             color: var(--primary);
-            text-shadow: 2px 2px 4px rgba(255, 111, 0, 0.3);
+            text-shadow: none;
+            letter-spacing: 0.5px;
         }
 
         nav ul {
@@ -161,7 +155,7 @@
             text-decoration: none;
             color: var(--text);
             font-weight: 500;
-            transition: all 0.3s;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
             border-bottom: 2px solid transparent;
             padding-bottom: 0.3rem;
         }
@@ -182,8 +176,8 @@
             text-align: center;
             background-color: #fafbfc;
             background-image: 
-                radial-gradient(circle at 20% 50%, rgba(0, 102, 204, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 111, 0, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 20% 50%, rgba(0, 102, 204, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 111, 0, 0.08) 0%, transparent 50%);
             position: relative;
             overflow: hidden;
             border-bottom: 3px solid var(--primary);
@@ -199,11 +193,11 @@
             position: absolute;
             width: 300px;
             height: 300px;
-            border: 2px dashed rgba(0, 212, 255, 0.2);
+            border: 1px solid rgba(0, 212, 255, 0.15);
             border-radius: 50%;
             top: 50px;
             right: -50px;
-            animation: spin 20s linear infinite;
+            animation: spin 30s linear infinite;
         }
 
         .hero::after {
@@ -211,11 +205,11 @@
             position: absolute;
             width: 200px;
             height: 200px;
-            border: 2px solid rgba(255, 111, 0, 0.2);
+            border: 1px solid rgba(255, 111, 0, 0.15);
             border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
             bottom: 20px;
             left: -30px;
-            animation: morph 6s ease-in-out infinite;
+            animation: morph 8s ease-in-out infinite;
         }
 
         @keyframes spin {
@@ -238,8 +232,9 @@
             font-size: 4rem;
             margin-bottom: 1rem;
             color: var(--primary);
-            text-shadow: 3px 3px 0px var(--secondary), 6px 6px 0px rgba(0, 0, 0, 0.1);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.08);
             animation: slideInDown 0.8s ease;
+            letter-spacing: -1px;
         }
 
         .tagline {
@@ -248,7 +243,7 @@
             margin-bottom: 2rem;
             animation: slideInUp 0.8s ease 0.2s both;
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .expertise {
@@ -264,18 +259,18 @@
             background: var(--bg);
             padding: 1rem 2rem;
             border-radius: 8px;
-            border: 3px solid var(--primary);
-            box-shadow: 5px 5px 0px rgba(0, 102, 204, 0.2);
+            border: 2px solid var(--primary);
+            box-shadow: 0 2px 8px rgba(0, 102, 204, 0.12);
             display: flex;
             align-items: center;
             gap: 0.5rem;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
         }
 
         .expertise-item:hover {
-            transform: translateY(-5px) rotate(-1deg);
-            box-shadow: 8px 8px 0px rgba(0, 102, 204, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.18);
         }
 
         .cta-buttons {
@@ -294,7 +289,7 @@
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
             text-decoration: none;
             display: inline-block;
             position: relative;
@@ -310,6 +305,7 @@
             border: 2px solid var(--primary);
             border-radius: 8px;
             z-index: -1;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
         }
 
         .btn-primary {
@@ -318,11 +314,11 @@
         }
 
         .btn-primary:hover {
-            transform: translate(-2px, -2px);
+            transform: translate(-1px, -1px);
         }
 
         .btn-primary::after {
-            transform: translate(4px, 4px);
+            transform: translate(2px, 2px);
         }
 
         .btn-secondary {
@@ -345,18 +341,18 @@
         }
 
         .btn-tertiary:hover {
-            transform: translate(-2px, -2px);
+            transform: translate(-1px, -1px);
         }
 
         .btn-tertiary::after {
             border-color: var(--secondary);
-            transform: translate(4px, 4px);
+            transform: translate(2px, 2px);
         }
 
         @keyframes slideInDown {
             from {
                 opacity: 0;
-                transform: translateY(-50px);
+                transform: translateY(-30px);
             }
             to {
                 opacity: 1;
@@ -367,7 +363,7 @@
         @keyframes slideInUp {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -396,7 +392,7 @@
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
             position: relative;
         }
 
@@ -427,6 +423,7 @@
             color: var(--primary);
             position: relative;
             padding-bottom: 1rem;
+            letter-spacing: -0.5px;
         }
 
         .section-title::after {
@@ -452,7 +449,7 @@
             border-radius: 8px;
             overflow: hidden;
             border: 2px solid var(--border);
-            transition: all 0.3s;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
             position: relative;
         }
 
@@ -467,8 +464,8 @@
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 8px 8px 0px rgba(0, 102, 204, 0.15), 0 0 0 2px var(--primary);
+            transform: translateY(-6px);
+            box-shadow: 0 8px 16px rgba(0, 102, 204, 0.12);
         }
 
         .project-header {
@@ -490,7 +487,7 @@
             right: -20px;
             width: 200px;
             height: 200px;
-            background: rgba(255, 111, 0, 0.2);
+            background: rgba(255, 111, 0, 0.15);
             border-radius: 50%;
         }
 
@@ -511,7 +508,7 @@
             color: #666;
             margin-bottom: 1rem;
             font-size: 0.95rem;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         [data-theme="dark"] .project-desc {
@@ -534,13 +531,13 @@
             font-weight: 600;
             cursor: pointer;
             border: 1px solid var(--primary);
-            transition: all 0.3s;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
         }
 
         .tech-tag:hover {
             background: var(--primary);
             color: white;
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         [data-theme="dark"] .tech-tag {
@@ -552,7 +549,7 @@
             color: var(--primary);
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
             border-bottom: 2px solid transparent;
         }
 
@@ -584,7 +581,7 @@
             border-radius: 8px;
             overflow: hidden;
             border: 2px solid var(--border);
-            transition: all 0.3s;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
             position: relative;
         }
 
@@ -599,8 +596,8 @@
         }
 
         .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 6px 6px 0px rgba(0, 212, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0, 212, 255, 0.15);
         }
 
         .blog-header {
@@ -633,11 +630,23 @@
             color: #666;
             font-size: 0.95rem;
             margin-bottom: 1rem;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         [data-theme="dark"] .blog-card p {
             color: #bbb;
+        }
+
+        .blog-coming-soon {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         /* Testimonials Section */
@@ -665,7 +674,7 @@
             border-left: 5px solid var(--secondary);
             border: 3px solid var(--secondary);
             border-left-width: 8px;
-            box-shadow: 8px 8px 0px rgba(255, 111, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(255, 111, 0, 0.08);
         }
 
         .testimonial-card p:first-child {
@@ -690,7 +699,7 @@
         .testimonial-author a {
             color: var(--primary);
             text-decoration: none;
-            transition: all 0.3s;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
             border-bottom: 2px solid transparent;
         }
 
@@ -724,14 +733,14 @@
             border-radius: 4px;
             font-size: 24px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
             z-index: 10;
         }
 
         .nav-arrow:hover {
             background: var(--secondary);
             border-color: var(--secondary);
-            transform: translateY(-50%) scale(1.1);
+            transform: translateY(-50%) scale(1.05);
         }
 
         .prev {
@@ -763,7 +772,7 @@
             padding: 2rem;
             text-align: center;
             border: 2px solid var(--border);
-            transition: all 0.3s;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
             position: relative;
             overflow: hidden;
         }
@@ -777,18 +786,18 @@
             height: 200px;
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             border-radius: 50%;
-            opacity: 0.1;
-            transition: all 0.3s;
+            opacity: 0.08;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
         }
 
         .certificate-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 0px var(--secondary);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
         }
 
         .certificate-card:hover::before {
-            top: -20%;
-            right: -20%;
+            top: -30%;
+            right: -30%;
         }
 
         .cert-icon {
@@ -824,7 +833,7 @@
             color: var(--primary);
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
             border-bottom: 2px solid transparent;
         }
 
@@ -851,7 +860,7 @@
             padding: 3rem;
             border-radius: 8px;
             border: 2px solid var(--border);
-            box-shadow: 0 8px 0px rgba(255, 111, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(255, 111, 0, 0.08);
         }
 
         .form-group {
@@ -873,7 +882,7 @@
             border-radius: 4px;
             font-family: inherit;
             font-size: 1rem;
-            transition: all 0.3s;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
             background: var(--bg);
             color: var(--text);
         }
@@ -906,6 +915,22 @@
             border-color: #dc3545;
         }
 
+        .form-success {
+            display: none;
+            padding: 1.5rem;
+            background: #d4edda;
+            border: 2px solid #28a745;
+            border-radius: 4px;
+            color: #155724;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            animation: slideInDown 0.4s ease;
+        }
+
+        .form-success.show {
+            display: block;
+        }
+
         /* Skills Section */
         .skills {
             background-color: var(--dark);
@@ -927,7 +952,7 @@
             background: rgba(255, 255, 255, 0.08);
             padding: 2rem;
             border-radius: 8px;
-            border: 2px solid rgba(0, 212, 255, 0.3);
+            border: 2px solid rgba(0, 212, 255, 0.2);
             backdrop-filter: blur(10px);
         }
 
@@ -953,14 +978,14 @@
             font-size: 0.9rem;
             font-weight: 600;
             border: 2px solid var(--primary);
-            transition: all 0.3s;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
             cursor: default;
         }
 
         .skill-badge:hover {
             background: var(--secondary);
             border-color: var(--secondary);
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         /* About Section */
@@ -975,7 +1000,7 @@
             padding: 3rem;
             border-radius: 8px;
             border: 2px solid var(--border);
-            box-shadow: 0 8px 0px rgba(0, 102, 204, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.08);
         }
 
         .about h2 {
@@ -984,6 +1009,7 @@
             color: var(--dark);
             position: relative;
             padding-bottom: 1rem;
+            letter-spacing: -0.5px;
         }
 
         .about h2::after {
@@ -997,8 +1023,8 @@
         }
 
         .about p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
             line-height: 1.8;
             color: #444;
         }
@@ -1071,11 +1097,11 @@
             border-radius: 8px;
             border: 2px solid rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(10px);
-            transition: all 0.3s;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
         }
 
         .contact-method:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             background: rgba(255, 255, 255, 0.3);
         }
 
@@ -1100,15 +1126,16 @@
             font-size: 24px;
             cursor: pointer;
             z-index: 999;
-            transition: all 0.3s;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
             box-shadow: 0 4px 12px rgba(0, 102, 204, 0.4);
+            aria-label: "Back to top";
         }
 
         #backToTop:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             background: var(--secondary);
             border-color: var(--secondary);
-            box-shadow: 0 8px 20px rgba(255, 111, 0, 0.5);
+            box-shadow: 0 6px 16px rgba(255, 111, 0, 0.4);
         }
 
         #backToTop.show {
@@ -1180,11 +1207,11 @@
 <body>
     <!-- Top Bar with Controls -->
     <div class="top-bar">
-        <button class="icon-btn" id="darkModeToggle" title="Toggle Dark Mode">🌙</button>
-        <button class="icon-btn" id="copyEmail" title="Copy Email">📋</button>
-        <button class="icon-btn" id="sharePortfolio" title="Share Portfolio">📤</button>
-        <a href="https://www.linkedin.com/in/husain-bagichawala" target="_blank" rel="noopener noreferrer" class="icon-btn social" title="LinkedIn">💼</a>
-        <a href="https://twitter.com/HB_Innovates" target="_blank" rel="noopener noreferrer" class="icon-btn social" title="Twitter">𝕏</a>
+        <button class="icon-btn" id="darkModeToggle" title="Toggle Dark Mode" aria-label="Toggle dark mode">🌙</button>
+        <button class="icon-btn" id="copyEmail" title="Copy Email" aria-label="Copy email address">📋</button>
+        <button class="icon-btn" id="sharePortfolio" title="Share Portfolio" aria-label="Share portfolio">📤</button>
+        <a href="https://www.linkedin.com/in/husain-bagichawala" target="_blank" rel="noopener noreferrer" class="icon-btn social" title="LinkedIn" aria-label="LinkedIn profile">💼</a>
+        <a href="https://twitter.com/HB_Innovates" target="_blank" rel="noopener noreferrer" class="icon-btn social" title="Twitter" aria-label="Twitter profile">𝕏</a>
     </div>
 
     <!-- Navigation -->
@@ -1215,7 +1242,7 @@
             <div class="cta-buttons">
                 <a href="https://github.com/HB-Innovates" class="btn btn-primary">View GitHub</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                <button class="btn btn-tertiary" onclick="downloadCV()">📥 Download CV</button>
+                <button class="btn btn-tertiary" onclick="downloadCV()" aria-label="Download CV">📥 Download CV</button>
             </div>
         </div>
     </section>
@@ -1243,7 +1270,7 @@
                     <p class="blog-meta">AI/Embedded • 8 min read</p>
                     <h3>From Lab to Production: Deploying AI Models on Embedded Devices</h3>
                     <p>Practical strategies for optimizing neural networks and deploying them efficiently on resource-constrained embedded systems.</p>
-                    <a href="#blog" class="project-link">Read More →</a>
+                    <span class="blog-coming-soon">Coming Soon</span>
                 </div>
             </div>
 
@@ -1253,7 +1280,7 @@
                     <p class="blog-meta">Embedded Systems • 10 min read</p>
                     <h3>CAN Protocol: A Deep Dive into Vehicle Communication</h3>
                     <p>Understanding the fundamentals of CAN bus, protocol implementation, and real-world applications in automotive systems.</p>
-                    <a href="#blog" class="project-link">Read More →</a>
+                    <span class="blog-coming-soon">Coming Soon</span>
                 </div>
             </div>
 
@@ -1263,7 +1290,7 @@
                     <p class="blog-meta">Autonomous Driving • 12 min read</p>
                     <h3>Autonomous Driving Perception: Real-time Object Detection</h3>
                     <p>Exploring state-of-the-art object detection models and their implementation for real-time autonomous vehicle perception.</p>
-                    <a href="#blog" class="project-link">Read More →</a>
+                    <span class="blog-coming-soon">Coming Soon</span>
                 </div>
             </div>
 
@@ -1273,7 +1300,7 @@
                     <p class="blog-meta">AI/ML • 15 min read</p>
                     <h3>Transformer Models Explained: A Practical Guide</h3>
                     <p>Deep dive into transformer architecture, attention mechanisms, and practical implementation for NLP and computer vision tasks.</p>
-                    <a href="#blog" class="project-link">Read More →</a>
+                    <span class="blog-coming-soon">Coming Soon</span>
                 </div>
             </div>
         </div>
@@ -1289,8 +1316,8 @@
                     - <a href="https://www.linkedin.com/in/murtaza-b-936413118/" target="_blank" rel="noopener noreferrer">Murtaza B</a>, Sr. Software Engineer @ <span class="verified-badge">✓ Verified</span>
                 </p>
             </div>
-            <button class="nav-arrow prev" onclick="prevTestimonial()">←</button>
-            <button class="nav-arrow next" onclick="nextTestimonial()">→</button>
+            <button class="nav-arrow prev" onclick="prevTestimonial()" aria-label="Previous testimonial">←</button>
+            <button class="nav-arrow next" onclick="nextTestimonial()" aria-label="Next testimonial">→</button>
         </div>
     </section>
 
@@ -1423,7 +1450,11 @@
     <section class="contact-form-section" id="contact-form">
         <h2 class="section-title">Send Me a Message</h2>
         <div class="contact-form-container">
-            <form id="contactForm" action="https://formspree.io/f/xyzqpwer" method="POST">
+            <div class="form-success" id="formSuccess">
+                <strong>✓ Message sent successfully!</strong><br>
+                Thank you for reaching out. I'll get back to you soon.
+            </div>
+            <form id="contactForm">
                 <div class="form-group">
                     <label for="name">Name *</label>
                     <input type="text" id="name" name="name" required>
@@ -1448,7 +1479,7 @@
                     <div class="form-error">Please enter a message (min 10 characters)</div>
                 </div>
 
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                <button type="submit" class="btn btn-primary" style="width: 100%;" id="submitBtn">Send Message</button>
             </form>
         </div>
     </section>
@@ -1554,6 +1585,7 @@
 
         let currentTestimonial = 0;
         let currentFilter = 'all';
+        let testimonialAutoRotateTimer = null;
 
         // Initialize projects
         function initializeProjects() {
@@ -1623,22 +1655,91 @@
         function nextTestimonial() {
             currentTestimonial = (currentTestimonial + 1) % testimonialsData.length;
             showTestimonial(currentTestimonial);
+            resetTestimonialTimer();
         }
 
         function prevTestimonial() {
             currentTestimonial = (currentTestimonial - 1 + testimonialsData.length) % testimonialsData.length;
             showTestimonial(currentTestimonial);
+            resetTestimonialTimer();
         }
 
-        // Contact Form Validation
+        function autoRotateTestimonial() {
+            nextTestimonial();
+        }
+
+        function resetTestimonialTimer() {
+            clearInterval(testimonialAutoRotateTimer);
+            testimonialAutoRotateTimer = setInterval(autoRotateTestimonial, 6000);
+        }
+
+        // Contact Form with improved UX
         const form = document.getElementById('contactForm');
         if (form) {
-            form.addEventListener('submit', (e) => {
+            form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 if (validateForm()) {
-                    form.submit();
+                    await submitForm();
                 }
             });
+
+            // Pause testimonial auto-rotate on hover
+            document.getElementById('testimonialCard').addEventListener('mouseenter', () => {
+                clearInterval(testimonialAutoRotateTimer);
+            });
+
+            document.getElementById('testimonialCard').addEventListener('mouseleave', () => {
+                resetTestimonialTimer();
+            });
+        }
+
+        async function submitForm() {
+            const form = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const successMsg = document.getElementById('formSuccess');
+            
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                subject: formData.get('subject'),
+                message: formData.get('message')
+            };
+
+            try {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+
+                // Send to Formspree
+                const response = await fetch('https://formspree.io/f/xyzqpwer', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    // Show success message
+                    successMsg.classList.add('show');
+                    form.reset();
+                    submitBtn.textContent = 'Message Sent!';
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        successMsg.classList.remove('show');
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Send Message';
+                    }, 5000);
+                } else {
+                    alert('Error sending message. Please try again.');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                alert('Error sending message. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
         }
 
         function validateForm() {
@@ -1752,6 +1853,7 @@
         // Initialize
         initializeProjects();
         showTestimonial(0);
+        resetTestimonialTimer();
     </script>
 </body>
 </html>
