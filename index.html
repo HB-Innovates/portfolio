@@ -19,6 +19,15 @@
             --light: #f8f9fa;
             --text: #1a1a1a;
             --border: #e0e0e0;
+            --bg: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --dark: #1a1a2e;
+            --light: #16213e;
+            --text: #eaeaea;
+            --border: #444;
+            --bg: #0f1419;
         }
 
         body {
@@ -27,6 +36,49 @@
             color: var(--text);
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
+            transition: background 0.3s;
+        }
+
+        [data-theme="dark"] body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        /* Top Bar Controls */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            right: 20px;
+            z-index: 1001;
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 0 0 15px 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        [data-theme="dark"] .top-bar {
+            background: rgba(15, 20, 25, 0.9);
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
         }
 
         /* Navigation */
@@ -42,6 +94,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        [data-theme="dark"] nav {
+            background: rgba(15, 20, 25, 0.95);
         }
 
         .logo {
@@ -82,6 +138,10 @@
             background: linear-gradient(135deg, rgba(0, 102, 204, 0.1) 0%, rgba(255, 111, 0, 0.1) 100%);
             position: relative;
             overflow: hidden;
+        }
+
+        [data-theme="dark"] .hero {
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.2) 0%, rgba(255, 111, 0, 0.2) 100%);
         }
 
         .hero::before {
@@ -146,7 +206,7 @@
         }
 
         .expertise-item {
-            background: white;
+            background: var(--bg);
             padding: 1rem 2rem;
             border-radius: 30px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -168,6 +228,7 @@
             justify-content: center;
             margin-top: 2rem;
             animation: slideInUp 0.8s ease 0.6s both;
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -194,7 +255,7 @@
         }
 
         .btn-secondary {
-            background: white;
+            background: var(--bg);
             color: var(--primary);
             border: 2px solid var(--primary);
         }
@@ -202,6 +263,18 @@
         .btn-secondary:hover {
             background: var(--primary);
             color: white;
+        }
+
+        .btn-tertiary {
+            background: var(--secondary);
+            color: white;
+            font-size: 0.9rem;
+            padding: 0.8rem 1.5rem;
+        }
+
+        .btn-tertiary:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
         }
 
         @keyframes slideInDown {
@@ -231,6 +304,7 @@
             padding: 4rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            background: var(--bg);
         }
 
         .section-title {
@@ -247,12 +321,13 @@
         }
 
         .project-card {
-            background: white;
+            background: var(--bg);
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s;
             cursor: pointer;
+            border: 1px solid var(--border);
         }
 
         .project-card:hover {
@@ -286,6 +361,10 @@
             font-size: 0.95rem;
         }
 
+        [data-theme="dark"] .project-desc {
+            color: #bbb;
+        }
+
         .project-tech {
             display: flex;
             flex-wrap: wrap;
@@ -300,6 +379,10 @@
             font-size: 0.85rem;
             color: var(--primary);
             font-weight: 600;
+        }
+
+        [data-theme="dark"] .tech-tag {
+            background: rgba(0, 102, 204, 0.2);
         }
 
         .project-link {
@@ -365,10 +448,11 @@
         }
 
         .about-content {
-            background: white;
+            background: var(--bg);
             padding: 3rem;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
         }
 
         .about h2 {
@@ -382,6 +466,10 @@
             font-size: 1.1rem;
             line-height: 1.8;
             color: #444;
+        }
+
+        [data-theme="dark"] .about p {
+            color: #bbb;
         }
 
         .experience-timeline {
@@ -403,7 +491,7 @@
             width: 16px;
             height: 16px;
             background: var(--primary);
-            border: 4px solid white;
+            border: 4px solid var(--bg);
             border-radius: 50%;
             box-shadow: 0 0 0 4px var(--primary);
         }
@@ -458,6 +546,36 @@
             font-weight: 600;
         }
 
+        /* Back to Top Button */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: none;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.4);
+        }
+
+        #backToTop:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.6);
+        }
+
+        #backToTop.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         /* Footer */
         footer {
             background: var(--dark);
@@ -490,10 +608,22 @@
             .section-title {
                 font-size: 2rem;
             }
+
+            .top-bar {
+                top: 70px;
+                right: 10px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Top Bar with Controls -->
+    <div class="top-bar">
+        <button class="icon-btn" id="darkModeToggle" title="Toggle Dark Mode">🌙</button>
+        <button class="icon-btn" id="copyEmail" title="Copy Email">📋</button>
+        <button class="icon-btn" id="sharePortfolio" title="Share Portfolio">📤</button>
+    </div>
+
     <!-- Navigation -->
     <nav>
         <div class="logo">HB 🚀</div>
@@ -521,6 +651,7 @@
             <div class="cta-buttons">
                 <a href="https://github.com/HB-Innovates" class="btn btn-primary">View GitHub</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                <button class="btn btn-tertiary" onclick="downloadCV()">📥 Download CV</button>
             </div>
         </div>
     </section>
@@ -729,12 +860,78 @@
         </div>
     </section>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to Top">↑</button>
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Husain Bagichawala. Building the future of autonomous driving and AI. 🚀</p>
     </footer>
 
     <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        if (isDarkMode) {
+            html.setAttribute('data-theme', 'dark');
+            darkModeToggle.textContent = '☀️';
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            const isCurrentlyDark = html.getAttribute('data-theme') === 'dark';
+            if (isCurrentlyDark) {
+                html.removeAttribute('data-theme');
+                localStorage.setItem('darkMode', 'false');
+                darkModeToggle.textContent = '🌙';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                localStorage.setItem('darkMode', 'true');
+                darkModeToggle.textContent = '☀️';
+            }
+        });
+
+        // Copy Email
+        document.getElementById('copyEmail').addEventListener('click', () => {
+            navigator.clipboard.writeText('bagichawala.husain@gmail.com');
+            alert('Email copied to clipboard!');
+        });
+
+        // Share Portfolio
+        document.getElementById('sharePortfolio').addEventListener('click', () => {
+            const url = window.location.href;
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Husain Bagichawala Portfolio',
+                    text: 'Check out my portfolio - AI Engineer | Autonomous Driving | Embedded Systems',
+                    url: url
+                });
+            } else {
+                navigator.clipboard.writeText(url);
+                alert('Portfolio link copied to clipboard!');
+            }
+        });
+
+        // Download CV (placeholder)
+        function downloadCV() {
+            alert('CV download feature coming soon! For now, visit: github.com/HB-Innovates');
+        }
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
