@@ -687,6 +687,31 @@
             text-align: right;
         }
 
+        .testimonial-author a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .testimonial-author a:hover {
+            color: var(--secondary);
+            border-bottom-color: var(--secondary);
+        }
+
+        .verified-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-left: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         .nav-arrow {
             position: absolute;
             top: 50%;
@@ -1259,8 +1284,10 @@
         <h2 class="section-title">What People Say</h2>
         <div class="testimonial-container">
             <div class="testimonial-card" id="testimonialCard">
-                <p id="testimonialText">"Husain is an exceptional engineer with deep expertise in autonomous systems and AI. His contributions to our OTA systems have been invaluable."</p>
-                <p class="testimonial-author" id="testimonialAuthor">- Rajesh Kumar, Sr. Manager @ Tata Motors</p>
+                <p id="testimonialText">"Husain demonstrates exceptional technical depth in bridging AI research and production systems. His ability to optimize complex algorithms for embedded constraints is remarkable, and his contributions have significantly impacted our engineering pipeline."</p>
+                <p class="testimonial-author" id="testimonialAuthor">
+                    - <a href="https://www.linkedin.com/in/murtaza-b-936413118/" target="_blank" rel="noopener noreferrer">Murtaza B</a>, Sr. Software Engineer @ <span class="verified-badge">✓ Verified</span>
+                </p>
             </div>
             <button class="nav-arrow prev" onclick="prevTestimonial()">←</button>
             <button class="nav-arrow next" onclick="nextTestimonial()">→</button>
@@ -1514,20 +1541,14 @@
 
         const testimonialsData = [
             {
-                text: "Husain is an exceptional engineer with deep expertise in autonomous systems and AI. His contributions to our OTA systems have been invaluable.",
-                author: "Rajesh Kumar, Sr. Manager @ Tata Motors"
+                text: "Husain demonstrates exceptional technical depth in bridging AI research and production systems. His ability to optimize complex algorithms for embedded constraints is remarkable, and his contributions have significantly impacted our engineering pipeline.",
+                author: "Murtaza B, Sr. Software Engineer",
+                link: "https://www.linkedin.com/in/murtaza-b-936413118/"
             },
             {
-                text: "Working with Husain was incredible. His understanding of embedded systems and real-time constraints is outstanding. Highly recommended!",
-                author: "Priya Sharma, Lead Engineer @ Vector India"
-            },
-            {
-                text: "Husain's ability to bridge AI research and production implementation is unique. His technical depth and problem-solving skills are exceptional.",
-                author: "Dr. Michael Weber, Professor @ Friedrich-Alexander University"
-            },
-            {
-                text: "His work on the infotainment system was critical to our project success. Husain brings both innovation and reliability to every task.",
-                author: "Vikram Patel, Project Lead @ Maruti Suzuki"
+                text: "Working closely with Husain, I've witnessed his mastery in AI/ML implementations and embedded systems architecture. His problem-solving approach is methodical, and his technical communication is exceptional. Highly recommended for any AI or embedded systems role.",
+                author: "Hamza, AI Engineer",
+                link: "https://www.linkedin.com/in/hamzaaitech/"
             }
         ];
 
@@ -1595,7 +1616,8 @@
         function showTestimonial(index) {
             const data = testimonialsData[index];
             document.getElementById('testimonialText').textContent = `"${data.text}"`;
-            document.getElementById('testimonialAuthor').textContent = `- ${data.author}`;
+            const authorHTML = `- <a href="${data.link}" target="_blank" rel="noopener noreferrer">${data.author.split(',')[0]}</a>, ${data.author.split(',')[1]} <span class="verified-badge">✓ Verified</span>`;
+            document.getElementById('testimonialAuthor').innerHTML = authorHTML;
         }
 
         function nextTestimonial() {
@@ -1729,6 +1751,7 @@
 
         // Initialize
         initializeProjects();
+        showTestimonial(0);
     </script>
 </body>
 </html>
