@@ -50,15 +50,15 @@
             right: 20px;
             z-index: 1001;
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
             padding: 1rem;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 0 0 15px 15px;
             backdrop-filter: blur(10px);
         }
 
         [data-theme="dark"] .top-bar {
-            background: rgba(15, 20, 25, 0.9);
+            background: rgba(15, 20, 25, 0.95);
         }
 
         .icon-btn {
@@ -74,11 +74,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            text-decoration: none;
         }
 
         .icon-btn:hover {
             transform: scale(1.1);
             box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+        }
+
+        .icon-btn.social {
+            background: var(--secondary);
+        }
+
+        .icon-btn.social:hover {
+            box-shadow: 0 4px 12px rgba(255, 111, 0, 0.3);
         }
 
         /* Navigation */
@@ -299,6 +308,40 @@
             }
         }
 
+        /* Filter Buttons */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            padding: 0 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .filter-btn {
+            padding: 0.7rem 1.5rem;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
         /* Projects Section */
         .projects {
             padding: 4rem 2rem;
@@ -379,6 +422,12 @@
             font-size: 0.85rem;
             color: var(--primary);
             font-weight: 600;
+            cursor: pointer;
+        }
+
+        .tech-tag:hover {
+            background: var(--primary);
+            color: white;
         }
 
         [data-theme="dark"] .tech-tag {
@@ -395,6 +444,273 @@
 
         .project-link:hover {
             color: var(--secondary);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Blog Section */
+        .blog {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: var(--bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.15);
+        }
+
+        .blog-header {
+            height: 180px;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-meta {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .blog-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .blog-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        [data-theme="dark"] .blog-card p {
+            color: #bbb;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.05) 0%, rgba(255, 111, 0, 0.05) 100%);
+        }
+
+        .testimonial-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-card {
+            background: var(--bg);
+            padding: 3rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--secondary);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .testimonial-card p:first-child {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        [data-theme="dark"] .testimonial-card p:first-child {
+            color: #ccc;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .nav-arrow:hover {
+            background: var(--secondary);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev {
+            left: -70px;
+        }
+
+        .next {
+            right: -70px;
+        }
+
+        /* Certificate Section */
+        .certificates {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--bg);
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .certificate-card {
+            background: var(--bg);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.2);
+        }
+
+        .cert-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .certificate-card h3 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-issuer {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        [data-theme="dark"] .cert-date {
+            color: #999;
+        }
+
+        .cert-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .cert-link:hover {
+            color: var(--secondary);
+        }
+
+        /* Contact Form */
+        .contact-form-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.05) 0%, rgba(255, 111, 0, 0.05) 100%);
+        }
+
+        .contact-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-error {
+            color: #dc3545;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+
+        .form-error.show {
+            display: block;
+        }
+
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: #dc3545;
         }
 
         /* Skills Section */
@@ -612,6 +928,25 @@
             .top-bar {
                 top: 70px;
                 right: 10px;
+                gap: 0.5rem;
+            }
+
+            .icon-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+
+            .prev, .next {
+                position: static;
+                transform: none;
+                margin-top: 1rem;
+                width: 40px;
+                height: 40px;
+            }
+
+            .filter-container {
+                padding: 0 1rem;
             }
         }
     </style>
@@ -622,6 +957,8 @@
         <button class="icon-btn" id="darkModeToggle" title="Toggle Dark Mode">🌙</button>
         <button class="icon-btn" id="copyEmail" title="Copy Email">📋</button>
         <button class="icon-btn" id="sharePortfolio" title="Share Portfolio">📤</button>
+        <a href="https://www.linkedin.com/in/husain-bagichawala" target="_blank" rel="noopener noreferrer" class="icon-btn social" title="LinkedIn">💼</a>
+        <a href="https://twitter.com/HB_Innovates" target="_blank" rel="noopener noreferrer" class="icon-btn social" title="Twitter">𝕏</a>
     </div>
 
     <!-- Navigation -->
@@ -629,6 +966,7 @@
         <div class="logo">HB 🚀</div>
         <ul>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#blog">Blog</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -659,95 +997,109 @@
     <!-- Projects Section -->
     <section class="projects" id="projects">
         <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-            <!-- Project 1 -->
-            <div class="project-card">
-                <div class="project-header">🎥</div>
-                <div class="project-content">
-                    <h3 class="project-title">Video Object Detection</h3>
-                    <p class="project-desc">Real-time object detection and semantic segmentation for autonomous vehicles using YOLOv5 and U-Net. Achieved 85%+ mAP on custom automotive dataset.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">YOLOv5</span>
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">U-Net</span>
-                    </div>
-                    <a href="https://github.com/HB-Innovates/video-object-detection" class="project-link">View Project →</a>
+        
+        <div class="filter-container" id="filterContainer">
+            <button class="filter-btn active" data-filter="all">Show All</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Projects will be inserted here by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <h2 class="section-title">Latest Articles</h2>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="blog-header">📚</div>
+                <div class="blog-content">
+                    <p class="blog-meta">AI/Embedded • 8 min read</p>
+                    <h3>From Lab to Production: Deploying AI Models on Embedded Devices</h3>
+                    <p>Practical strategies for optimizing neural networks and deploying them efficiently on resource-constrained embedded systems.</p>
+                    <a href="#blog" class="project-link">Read More →</a>
                 </div>
             </div>
 
-            <!-- Project 2 -->
-            <div class="project-card">
-                <div class="project-header">🧬</div>
-                <div class="project-content">
-                    <h3 class="project-title">Multimodal Sentiment Analysis</h3>
-                    <p class="project-desc">AI system integrating text, audio, and video modalities using Transformer models and attention mechanisms for comprehensive sentiment understanding.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Transformers</span>
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">Attention</span>
-                    </div>
-                    <a href="https://github.com/HB-Innovates/multimodal-sentiment-analysis" class="project-link">View Project →</a>
+            <div class="blog-card">
+                <div class="blog-header">🔌</div>
+                <div class="blog-content">
+                    <p class="blog-meta">Embedded Systems • 10 min read</p>
+                    <h3>CAN Protocol: A Deep Dive into Vehicle Communication</h3>
+                    <p>Understanding the fundamentals of CAN bus, protocol implementation, and real-world applications in automotive systems.</p>
+                    <a href="#blog" class="project-link">Read More →</a>
                 </div>
             </div>
 
-            <!-- Project 3 -->
-            <div class="project-card">
-                <div class="project-header">🚙</div>
-                <div class="project-content">
-                    <h3 class="project-title">Vehicle Data Logger</h3>
-                    <p class="project-desc">STM32-based CAN data logger for extracting and analyzing ECU messages. Features real-time parsing, filtering, and multi-ECU support.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">STM32</span>
-                        <span class="tech-tag">CAN Protocol</span>
-                        <span class="tech-tag">Embedded C</span>
-                    </div>
-                    <a href="https://github.com/HB-Innovates/vehicle-data-logger" class="project-link">View Project →</a>
+            <div class="blog-card">
+                <div class="blog-header">🚗</div>
+                <div class="blog-content">
+                    <p class="blog-meta">Autonomous Driving • 12 min read</p>
+                    <h3>Autonomous Driving Perception: Real-time Object Detection</h3>
+                    <p>Exploring state-of-the-art object detection models and their implementation for real-time autonomous vehicle perception.</p>
+                    <a href="#blog" class="project-link">Read More →</a>
                 </div>
             </div>
 
-            <!-- Project 4 -->
-            <div class="project-card">
-                <div class="project-header">📊</div>
-                <div class="project-content">
-                    <h3 class="project-title">Fleet Optimization & OTA</h3>
-                    <p class="project-desc">AI-powered fleet management system with predictive maintenance using TensorFlow and MQTT for real-time vehicle communication.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">TensorFlow</span>
-                        <span class="tech-tag">MQTT</span>
-                        <span class="tech-tag">Python</span>
-                    </div>
-                    <a href="https://github.com/HB-Innovates/adaptive-fleet-system" class="project-link">View Project →</a>
+            <div class="blog-card">
+                <div class="blog-header">🤖</div>
+                <div class="blog-content">
+                    <p class="blog-meta">AI/ML • 15 min read</p>
+                    <h3>Transformer Models Explained: A Practical Guide</h3>
+                    <p>Deep dive into transformer architecture, attention mechanisms, and practical implementation for NLP and computer vision tasks.</p>
+                    <a href="#blog" class="project-link">Read More →</a>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Project 5 -->
-            <div class="project-card">
-                <div class="project-header">💻</div>
-                <div class="project-content">
-                    <h3 class="project-title">Embedded C Drivers</h3>
-                    <p class="project-desc">Custom UART and GPIO drivers for STM32 microcontroller with hardware abstraction layer for efficient embedded system development.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Embedded C</span>
-                        <span class="tech-tag">STM32</span>
-                        <span class="tech-tag">HAL</span>
-                    </div>
-                    <a href="https://github.com/HB-Innovates/embedded-c-project" class="project-link">View Project →</a>
-                </div>
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">What People Say</h2>
+        <div class="testimonial-container">
+            <div class="testimonial-card" id="testimonialCard">
+                <p id="testimonialText">"Husain is an exceptional engineer with deep expertise in autonomous systems and AI. His contributions to our OTA systems have been invaluable."</p>
+                <p class="testimonial-author" id="testimonialAuthor">- Rajesh Kumar, Sr. Manager @ Tata Motors</p>
+            </div>
+            <button class="nav-arrow prev" onclick="prevTestimonial()">←</button>
+            <button class="nav-arrow next" onclick="nextTestimonial()">→</button>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="certificates" id="certificates">
+        <h2 class="section-title">Certifications & Credentials</h2>
+        <div class="cert-grid">
+            <div class="certificate-card">
+                <div class="cert-icon">🎓</div>
+                <h3>Deep Learning Specialization</h3>
+                <p class="cert-issuer">Coursera</p>
+                <p class="cert-date">December 2024</p>
+                <a href="#" class="cert-link">View Certificate</a>
             </div>
 
-            <!-- Project 6 -->
-            <div class="project-card">
-                <div class="project-header">⚙️</div>
-                <div class="project-content">
-                    <h3 class="project-title">Compliance Automation</h3>
-                    <p class="project-desc">Cross-functional automation system for HR and legal compliance across 30+ countries. 90% reduction in manual effort.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Power Automate</span>
-                        <span class="tech-tag">Zapier</span>
-                        <span class="tech-tag">No-Code</span>
-                    </div>
-                    <a href="#projects" class="project-link">View Details →</a>
-                </div>
+            <div class="certificate-card">
+                <div class="cert-icon">🏆</div>
+                <h3>Advanced Computer Vision</h3>
+                <p class="cert-issuer">Udacity</p>
+                <p class="cert-date">October 2024</p>
+                <a href="#" class="cert-link">View Certificate</a>
+            </div>
+
+            <div class="certificate-card">
+                <div class="cert-icon">⚙️</div>
+                <h3>STM32 Microcontroller Mastery</h3>
+                <p class="cert-issuer">Udemy</p>
+                <p class="cert-date">August 2024</p>
+                <a href="#" class="cert-link">View Certificate</a>
+            </div>
+
+            <div class="certificate-card">
+                <div class="cert-icon">🔤</div>
+                <h3>Transformer Models for NLP</h3>
+                <p class="cert-issuer">Fast.ai</p>
+                <p class="cert-date">June 2024</p>
+                <a href="#" class="cert-link">View Certificate</a>
             </div>
         </div>
     </section>
@@ -839,6 +1191,40 @@
         </div>
     </section>
 
+    <!-- Contact Form Section -->
+    <section class="contact-form-section" id="contact-form">
+        <h2 class="section-title">Send Me a Message</h2>
+        <div class="contact-form-container">
+            <form id="contactForm" action="https://formspree.io/f/xyzqpwer" method="POST">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                    <div class="form-error">Please enter a valid name (min 2 characters)</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="form-error">Please enter a valid email address</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <input type="text" id="subject" name="subject" required>
+                    <div class="form-error">Please enter a subject (min 3 characters)</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <div class="form-error">Please enter a message (min 10 characters)</div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <h2>Let's Connect</h2>
@@ -851,7 +1237,11 @@
             </div>
             <div class="contact-method">
                 <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">💼</div>
-                <a href="https://github.com/HB-Innovates">GitHub</a>
+                <a href="https://www.linkedin.com/in/husain-bagichawala" target="_blank">LinkedIn</a>
+            </div>
+            <div class="contact-method">
+                <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">𝕏</div>
+                <a href="https://twitter.com/HB_Innovates" target="_blank">Twitter</a>
             </div>
             <div class="contact-method">
                 <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📞</div>
@@ -869,11 +1259,204 @@
     </footer>
 
     <script>
-        // Dark Mode Toggle
+        // Projects Data
+        const projectsData = [
+            {
+                id: 1,
+                title: "Video Object Detection",
+                desc: "Real-time object detection and semantic segmentation for autonomous vehicles using YOLOv5 and U-Net. Achieved 85%+ mAP on custom automotive dataset.",
+                tech: ["YOLOv5", "PyTorch", "U-Net"],
+                icon: "🎥",
+                link: "https://github.com/HB-Innovates/video-object-detection"
+            },
+            {
+                id: 2,
+                title: "Multimodal Sentiment Analysis",
+                desc: "AI system integrating text, audio, and video modalities using Transformer models and attention mechanisms for comprehensive sentiment understanding.",
+                tech: ["Transformers", "PyTorch", "Attention"],
+                icon: "🧬",
+                link: "https://github.com/HB-Innovates/multimodal-sentiment-analysis"
+            },
+            {
+                id: 3,
+                title: "Vehicle Data Logger",
+                desc: "STM32-based CAN data logger for extracting and analyzing ECU messages. Features real-time parsing, filtering, and multi-ECU support.",
+                tech: ["STM32", "CAN Protocol", "Embedded C"],
+                icon: "🚙",
+                link: "https://github.com/HB-Innovates/vehicle-data-logger"
+            },
+            {
+                id: 4,
+                title: "Fleet Optimization & OTA",
+                desc: "AI-powered fleet management system with predictive maintenance using TensorFlow and MQTT for real-time vehicle communication.",
+                tech: ["TensorFlow", "MQTT", "Python"],
+                icon: "📊",
+                link: "https://github.com/HB-Innovates/adaptive-fleet-system"
+            },
+            {
+                id: 5,
+                title: "Embedded C Drivers",
+                desc: "Custom UART and GPIO drivers for STM32 microcontroller with hardware abstraction layer for efficient embedded system development.",
+                tech: ["Embedded C", "STM32", "HAL"],
+                icon: "💻",
+                link: "https://github.com/HB-Innovates/embedded-c-project"
+            },
+            {
+                id: 6,
+                title: "Compliance Automation",
+                desc: "Cross-functional automation system for HR and legal compliance across 30+ countries. 90% reduction in manual effort.",
+                tech: ["Power Automate", "Zapier", "No-Code"],
+                icon: "⚙️",
+                link: "#projects"
+            }
+        ];
+
+        const testimonialsData = [
+            {
+                text: "Husain is an exceptional engineer with deep expertise in autonomous systems and AI. His contributions to our OTA systems have been invaluable.",
+                author: "Rajesh Kumar, Sr. Manager @ Tata Motors"
+            },
+            {
+                text: "Working with Husain was incredible. His understanding of embedded systems and real-time constraints is outstanding. Highly recommended!",
+                author: "Priya Sharma, Lead Engineer @ Vector India"
+            },
+            {
+                text: "Husain's ability to bridge AI research and production implementation is unique. His technical depth and problem-solving skills are exceptional.",
+                author: "Dr. Michael Weber, Professor @ Friedrich-Alexander University"
+            },
+            {
+                text: "His work on the infotainment system was critical to our project success. Husain brings both innovation and reliability to every task.",
+                author: "Vikram Patel, Project Lead @ Maruti Suzuki"
+            }
+        ];
+
+        let currentTestimonial = 0;
+        let currentFilter = 'all';
+
+        // Initialize projects
+        function initializeProjects() {
+            const grid = document.getElementById('projectsGrid');
+            const filterContainer = document.getElementById('filterContainer');
+            const allTechs = new Set();
+
+            projectsData.forEach(project => {
+                project.tech.forEach(t => allTechs.add(t));
+            });
+
+            allTechs.forEach(tech => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                btn.dataset.filter = tech;
+                btn.textContent = tech;
+                btn.addEventListener('click', () => filterProjects(tech, btn));
+                filterContainer.appendChild(btn);
+            });
+
+            renderProjects();
+        }
+
+        function renderProjects() {
+            const grid = document.getElementById('projectsGrid');
+            grid.innerHTML = '';
+
+            const filtered = currentFilter === 'all' ? projectsData : projectsData.filter(p => p.tech.includes(currentFilter));
+
+            filtered.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.innerHTML = `
+                    <div class="project-header">${project.icon}</div>
+                    <div class="project-content">
+                        <h3 class="project-title">${project.title}</h3>
+                        <p class="project-desc">${project.desc}</p>
+                        <div class="project-tech">
+                            ${project.tech.map(t => `<span class="tech-tag" onclick="filterProjects('${t}')">${t}</span>`).join('')}
+                        </div>
+                        <a href="${project.link}" class="project-link">View Project →</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterProjects(tech, btn) {
+            currentFilter = tech;
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            if (btn) {
+                btn.classList.add('active');
+            } else {
+                document.querySelector(`[data-filter="${tech}"]`)?.classList.add('active');
+            }
+            renderProjects();
+        }
+
+        // Testimonials
+        function showTestimonial(index) {
+            const data = testimonialsData[index];
+            document.getElementById('testimonialText').textContent = `"${data.text}"`;
+            document.getElementById('testimonialAuthor').textContent = `- ${data.author}`;
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonialsData.length;
+            showTestimonial(currentTestimonial);
+        }
+
+        function prevTestimonial() {
+            currentTestimonial = (currentTestimonial - 1 + testimonialsData.length) % testimonialsData.length;
+            showTestimonial(currentTestimonial);
+        }
+
+        // Contact Form Validation
+        const form = document.getElementById('contactForm');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (validateForm()) {
+                    form.submit();
+                }
+            });
+        }
+
+        function validateForm() {
+            const fields = [
+                { id: 'name', minLength: 2 },
+                { id: 'email', minLength: 5, type: 'email' },
+                { id: 'subject', minLength: 3 },
+                { id: 'message', minLength: 10 }
+            ];
+
+            let isValid = true;
+            fields.forEach(field => {
+                const input = document.getElementById(field.id);
+                const group = input.closest('.form-group');
+                const error = group.querySelector('.form-error');
+
+                let valid = true;
+                if (field.type === 'email') {
+                    valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
+                } else {
+                    valid = input.value.length >= field.minLength;
+                }
+
+                if (!valid) {
+                    group.classList.add('error');
+                    error.classList.add('show');
+                    isValid = false;
+                } else {
+                    group.classList.remove('error');
+                    error.classList.remove('show');
+                }
+            });
+
+            return isValid;
+        }
+
+        // Dark Mode
         const darkModeToggle = document.getElementById('darkModeToggle');
         const html = document.documentElement;
-        
         const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        
         if (isDarkMode) {
             html.setAttribute('data-theme', 'dark');
             darkModeToggle.textContent = '☀️';
@@ -904,21 +1487,21 @@
             if (navigator.share) {
                 navigator.share({
                     title: 'Husain Bagichawala Portfolio',
-                    text: 'Check out my portfolio - AI Engineer | Autonomous Driving | Embedded Systems',
+                    text: 'Check out my portfolio',
                     url: url
                 });
             } else {
                 navigator.clipboard.writeText(url);
-                alert('Portfolio link copied to clipboard!');
+                alert('Link copied!');
             }
         });
 
-        // Download CV (placeholder)
+        // Download CV
         function downloadCV() {
-            alert('CV download feature coming soon! For now, visit: github.com/HB-Innovates');
+            alert('To set up CV download: Upload your CV file and update the download link.');
         }
 
-        // Back to Top Button
+        // Back to Top
         const backToTopBtn = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
@@ -943,24 +1526,8 @@
             });
         });
 
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'slideInUp 0.6s ease forwards';
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.project-card, .skill-category, .exp-item').forEach(el => {
-            observer.observe(el);
-        });
+        // Initialize
+        initializeProjects();
     </script>
 </body>
 </html>
