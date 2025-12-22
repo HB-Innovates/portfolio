@@ -1,0 +1,41 @@
+# Build Artifacts
+/dist/
+/build/
+*.min.js
+*.min.css
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+.npm
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local environment
+.env.local
+.env.*.local
+
+# Dependencies
+/vendor/
+/Gemfile.lock
+
+# Jekyll
+_site/
+.jekyll-metadata
+.jekyll-cache/
+
+# Editor backups
+*~
+*.bak
+*.swp
